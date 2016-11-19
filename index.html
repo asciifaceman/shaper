@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link rel="stylesheet" href="static/css/bootstrap.min.css">
+  <style>
+    [ng-cloak] {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet" href="static/css/main.css">
+  <link rel="stylesheet" href="static/css/plugins/morris.css">
+  <link rel="stylesheet" href="static/font-awesome/css/font-awesome.min.css">
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script type="text/javascript" src="static/js/store.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <title>Shaper</title>
+  <link rel="stylesheet" href="static/css/main.css">
+  <link href="static/img/favicon.ico" rel="icon" type="image/x-icon"/>
+</head>
+<body>
+
+<!-- Top navigation bar -->
+<div id="wrapper">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" rel="home" href="index.html">
+        <span>
+        <img style="max-width:25px; margin-top: -7px;"
+             src="static/img/plain_egg.png">&nbsp;Shaper <font size="1.5px">v0.0</font></a>
+        </span>
+    </div>
+    <div class="navbar-header">
+      <a class="navbar-brand" rel="home" href="index.html">
+        <span>
+        &nbsp;Ticks <font size="1.5px"><div id="sysTicks"></div></font></a>
+        </span>
+    </div>   
+  </nav>  
+</div>
+<div id="page-wrapper">
+  <div class="container-fluid">
+
+    <div class="row">
+    <!-- stable id -->
+      <div class="col-lg-3" id="stable">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-tree fa-fw"></i> Stable</h3>
+          </div>
+          <div class="panel-body">
+            <div class="panel-responsive">
+              <!-- row -->
+              <div class="row">
+                <!-- col -->
+                <div class="col-lg-3">
+                  Eggs: {{ eggs }}
+                </div>
+                <!-- /.col -->
+                <!-- col -->
+                <div class="col-lg-6">
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-striped active notransition" role="progressbar"
+                    aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" v-bind:style="{ width: eggPercent + '%' }">
+                      {{ eggPercent }}
+                    </div>
+                  </div>              
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+              <!--
+              <div class="row">
+                <div class="col-lg-3">
+                  <a class="btn btn-primary" id="btnThing">Thing</a>
+                </div>
+              </div>
+              -->
+              <!-- /.row -->
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="table-responsive">
+                    <table class="table table-hover table-striped">                  
+
+                    <thead title="gensitars">
+                      <tr>
+                        <th>Name</th>
+                        <th>Have</th>
+                      </tr>
+                    </thead>
+                      <tbody>
+                        <tr v-for="gen in genistar">
+                          <td>{{ gen[0] }}</td>
+                          <td>{{ gen[1] }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- /.row -->
+            </div>
+          </div>
+        </div>
+      </div>  
+      <!-- /.col -->
+      <div class="col-lg-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><i class="fa fa-circle fa-fw"></i> Test (static)</h3>
+          </div>
+          <div class="panel-body">
+            <div class="panel-responsive">
+            Test (static)
+            </div>
+          </div>
+        </div>
+      </div>  
+      <!-- /.col -->      
+    </div>
+
+  </div>
+</div>
+
+<div class="modal-footer" style="color:white">
+Shaper &copy; <a href="http://www.activatedalmond.com/">Activated Almond LLC</a>
+</div>
+<script src="app.js"></script>
+<!--
+<script type="text/javascript" src="static/js/game/engine.js"></script>-->
+</body>
+</html>
