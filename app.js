@@ -4,7 +4,9 @@
 //
 
 // System Vars
+var vm = "";
 var system = {
+  version: 0.1,
   interval: 66.6664,
   // 16.6666 = 60 ticks/second
   // 33.3332 = 30 ticks/second
@@ -59,15 +61,12 @@ function gameLoop(intervalsPassed) {
 }
 
 function updateVue() {
-  //Vue.set(vm, 'eggs', genistars.egg[1]);
-  Vue.set(vm, 'eggPercent', genistars.egg[2]);
-  //Vue.set(vm, 'numDefault', genistars.def[1]);
+  vm.eggPercent = genistars.egg[2];
 }
 
 //
 // Game Logic
 //
-
 function growEggs(intervalsPassed) {
   for (var i = 1; i <= intervalsPassed; i++) {
     genistars['egg'][2] += 1;
@@ -81,25 +80,30 @@ function growEggs(intervalsPassed) {
 //
 // VUES
 //
+function initVue() {
+  vm = new Vue ({
+    el: '#vueStable',
+    data: {
+      eggPercent: genistars.egg[2],
+      genistar: genistars
+    }
 
-var vm = new Vue ({
-  el: '#stable',
-  data: {
-    eggs: 0,
-    eggPercent: 0,
-    numDefault: 0,
-    genistar: {
-      def: genistars['def'],
-      mouse: genistars['mouse'],      
-    }    
-  },
+    // Vue.set(vm, key, val) to update page
+  });
+  vh = new Vue ({
+    el: '#vueHead',
+    data: {
+      sys: system
+    }
+  });
+  console.log(vm.genistar);
+}
 
-  // Vue.set(vm, key, val) to update page
-});
-console.log(vm);
-
+//
 // On Load
+//
 $( document ).ready(function() {
   engine = new GlobalTimer();
-  console.log("Ready!");
+  initVue();
+  console.log("v" + system['version'] + " Ready!");
 })

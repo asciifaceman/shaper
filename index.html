@@ -31,45 +31,42 @@
 <div id="wrapper">
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="navbar-header">
-      <a class="navbar-brand" rel="home" href="index.html">
+      <a class="navbar-brand" rel="home" href="#">
         <span>
         <img style="max-width:25px; margin-top: -7px;"
-             src="static/img/plain_egg.png">&nbsp;Shaper <font size="1.5px">v0.0</font></a>
+             src="static/img/plain_egg.png">&nbsp;Shaper <font size="1.5px"></font></a>
         </span>
     </div>
-    <div class="navbar-header">
-      <a class="navbar-brand" rel="home" href="index.html">
-        <span>
-        &nbsp;Ticks <font size="1.5px"><div id="sysTicks"></div></font></a>
-        </span>
-    </div>   
-  </nav>  
+  </nav>
 </div>
 <div id="page-wrapper">
   <div class="container-fluid">
-
     <div class="row">
     <!-- stable id -->
-      <div class="col-lg-3" id="stable">
+      <div class="col-lg-3" id="vueStable">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title"><i class="fa fa-tree fa-fw"></i> Stable</h3>
           </div>
+          <div class="" hidden>
+          This is apparently the only way I can get this to react properly because fuck me.
+          {{ eggPercent }}
+          </div>          
           <div class="panel-body">
             <div class="panel-responsive">
               <!-- row -->
               <div class="row">
                 <!-- col -->
                 <div class="col-lg-3">
-                  Eggs: {{ eggs }}
+                  Eggs: {{ genistar.egg[1] }}
                 </div>
                 <!-- /.col -->
                 <!-- col -->
                 <div class="col-lg-6">
                   <div class="progress">
                     <div class="progress-bar progress-bar-striped active notransition" role="progressbar"
-                    aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" v-bind:style="{ width: eggPercent + '%' }">
-                      {{ eggPercent }}
+                    aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" v-bind:style="{ width: genistar.egg[2] + '%' }">
+                      {{ genistar.egg[2] }}
                     </div>
                   </div>              
                 </div>
@@ -129,8 +126,8 @@
   </div>
 </div>
 
-<div class="modal-footer" style="color:white">
-Shaper &copy; <a href="http://www.activatedalmond.com/">Activated Almond LLC</a>
+<div class="modal-footer" style="color:white" id="vueHead">
+Shaper v{{ sys.version }} &copy; <a href="http://www.activatedalmond.com/">Activated Almond LLC</a>
 </div>
 <script src="app.js"></script>
 <!--
